@@ -15,19 +15,24 @@ export const Nav = styled.nav`
 `;
 
 export const NavLink = styled(Link)`
-	color: ${colors.highlight};
+	color: ${colors.textHeader};
 	text-decoration: none;
 	font-size: 1.5rem;
 	padding: 2rem 1rem;
 	cursor: pointer;
 
-	&.active {
+	&.active,
+	&:hover {
 		color: ${colors.highlight};
 	}
 
-	@media ${device.tablet} {
-		font-size: 1rem;
-	}
+	/* @media ${device.tablet} {
+		font-size: 1.125rem;
+
+		.logo {
+			font-size: 1.5rem;
+		}
+	} */
 `;
 
 // styled for Sidebar.js
@@ -36,15 +41,27 @@ export const NavMenu = styled.div`
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	background: ${colors.backgroundLight};
+	background: ${colors.divBackground};
 	position: fixed;
 	top: 0;
 	right: 0;
 	height: 100vh;
 	width: 100vw;
-	transform: ${({ isOpen }) =>
-		isOpen ? "translateY(0)" : "translateY(-100%)"};
-	transition: transform 0.3s ease-in-out;
+	/* transform: ${({ isOpen }) =>
+		isOpen ? "translateY(0)" : "translateY(-100%)"}; */
+	/* transition: transform 0.3s ease-in-out; */
+	${(props) => {
+		if (props.isOpen) {
+			return `
+				transform: translateY(0);
+				transition: transform 0.3s ease-in-out;
+			`;
+		} else {
+			return `
+					transform: translateY(-100%);
+				`;
+		}
+	}};
 
 	@media ${device.tablet} {
 		transform: none;
