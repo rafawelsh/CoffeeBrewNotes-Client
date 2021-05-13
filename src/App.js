@@ -15,7 +15,7 @@ import GlobalStyle from "./styles/GlobalStyles";
 
 function App() {
 	const loggedIn = localStorage.getItem("token");
-
+	console.log(loggedIn);
 	return (
 		<Router>
 			<GlobalStyle />

@@ -17,7 +17,7 @@ function RecipesGrid() {
 		axios({
 			headers: { "auth-token": localStorage.getItem("token") },
 			method: "GET",
-			url: "/api/recipes",
+			url: "https://coffee-journal-app.herokuapp.com/api/recipes",
 		})
 			.then((res) => {
 				setRecipeEntries(Object.values(res.data));

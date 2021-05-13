@@ -72,7 +72,7 @@ function RecipeGridCard(props) {
 		axios({
 			headers: { "auth-token": localStorage.getItem("token") },
 			method: "GET",
-			url: `/api/recipes/${id}`,
+			url: `https://coffee-journal-app.herokuapp.com/api/recipes/${id}`,
 		})
 			.then((res) => {
 				setRecipe(res.data);

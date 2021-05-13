@@ -35,7 +35,7 @@ function RecipeForm() {
 		axios({
 			headers: { "auth-token": localStorage.getItem("token") },
 			method: "POST",
-			url: "/api/recipes",
+			url: "https://coffee-journal-app.herokuapp.com/api/recipes",
 			data: values,
 		})
 			.then((response) => {
