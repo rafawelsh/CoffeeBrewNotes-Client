@@ -21,7 +21,6 @@ function RecipesGrid() {
 		})
 			.then((res) => {
 				setRecipeEntries(Object.values(res.data));
-				// console.log(res.data);
 			})
 			.catch((err) => {
 				console.log(err);
