@@ -31,11 +31,13 @@ function RecipeForm() {
 		tastingNotes: "",
 	};
 
+	const { REACT_APP_DEV_DB_RECIPE } = process.env;
+
 	const handleOnSubmit = (values, actions) => {
 		axios({
 			headers: { "auth-token": localStorage.getItem("token") },
 			method: "POST",
-			url: "https://coffee-journal-app.herokuapp.com/api/recipes",
+			url: { REACT_APP_DEV_DB_RECIPE },
 			data: values,
 		})
 			.then((response) => {

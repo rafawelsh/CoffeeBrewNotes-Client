@@ -13,11 +13,13 @@ function RecipesGrid() {
 		getRecipeEntries();
 	}, []);
 
+	const { REACT_APP_DEV_DB_RECIPE } = process.env;
+
 	const getRecipeEntries = () => {
 		axios({
 			headers: { "auth-token": localStorage.getItem("token") },
 			method: "GET",
-			url: "https://coffee-journal-app.herokuapp.com/api/recipes",
+			url: { REACT_APP_DEV_DB_RECIPE },
 		})
 			.then((res) => {
 				setRecipeEntries(Object.values(res.data));
